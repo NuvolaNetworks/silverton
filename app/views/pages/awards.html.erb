@@ -1,3 +1,23 @@
+<script>
+            $(document).ready(function() {
+            $( "#testimonial_trigger" ).click(function() {
+            $( "#testamonials" ).show();
+            $( "#awards" ).hide();
+            $( "#testimonial_trigger").hide();
+            $( "#awards_trigger").show();
+  
+                });
+        
+            $( "#awards_trigger" ).click(function() {
+            $( "#awards" ).show();
+            $( "#testamonials" ).hide();
+            $( "#testimonial_trigger").show();
+            $( "#awards_trigger").hide();
+  
+                });
+            });
+</script>
+
  <div class="container">
         <div class="row">
 			<center><h1>Our Clients. Our Inspiration.</h1/></center>
@@ -7,6 +27,14 @@
 				</center></p><br />
 				<h3>We are grateful to the discerning custom homebuyers who have made Silverton Custom Homes their builder of choice—many on a repeat basis and some as many as four times.
 				</h3><br />
+
+				<div id="testimonial_trigger">
+					<h2><%= link_to "Show Testamonials", "#testimonials_trigger" %></h2>
+				</div>
+				<div id="awards_trigger">
+					<h2><%= link_to "Show Awards", "#awards_trigger" %><br /><br /></h2>
+				</div>
+				<div id="testamonials">
 			<p>
 				“I found the Silverton Custom Homes team to be the perfect partner in creating your dream home in Flintrock Falls!  They have become a trusted friend, with rich experience and insights in all phases of home construction- from architectural design, site layout, and custom quality construction and interior design. They listened to what I wanted and helped me optimize the features of my home on my home site. If you are planning to establish your new home in a beautiful golf course community with gated entry ways and access to the best schools and shopping at the new Hill Country Galleria – you owe it to yourself to visit with the Silverton team!”
 			</p>
@@ -78,5 +106,38 @@
 			<p><em>-Eric and Julie Clark</em></p>
 			<br />
 			<br />
+			<br />
+		</div>
+		<div id="awards">
+			<p>Get to know us and you’ll find we’re a humble bunch.</p>
+
+<p>We’re only tooting our horn because you wanted to see our virtual trophy case.</p>
+
+<p><b>Southern Living Custom Home Builder of the Year - 2013.</b>  We’re a member of the Southern Living Custom Home Builder Program, which is invitation-only. The Program consists of 100 of the South’s top custom home builders recognized for their detailed craftsmanship, excellence in customer service, financial stability, and use of quality building materials.This year we were awarded Builder of the Year for our successful presentation of the 2013 Southern Living Showcase Home built in Waterford On Lake Travis. This home welcomed nearly 2,500 visitors, and we collected $11,317 on behalf of Ronald McDonald House Charities and Operation Finally Home.</p>
+<p>
+<b>Southern Living Building Hope Award - 2013.</b>  We received the Building Hope Award from the Southern Living Custom Builder Program, which is an annual award given for exemplary volunteer efforts and local community service.We were recognized for our partnership with Operation FINALLY Home in which we built a brand-new, mortgage-free home for U.S. Army Spc. Augustine Pena and his family. As a result of our work, the Southern Living Custom Builder Program adopted Operation FINALLY Home as the Program’s  official charity.</p>
+<p>
+<b>2013 MAX Award for Best Custom Spec Home</b> The Homebuilders Association of Greater Austin awarded us a Marketing and Advertising Excellence Award for the Best Spec Home.
+</p>
+<p>
+<b>2013 MAX Award for Best Kitchen</b> The Homebuilders Association of Greater Austin awarded us a Marketing and Advertising Excellence Award for the Best Kitchen.
+</p>
+<p>
+<b>2013 MAX Award for Best Interior Design for a Showcase Home</b> The Homebuilders Association of Greater Austin awarded us a Marketing and Advertising Excellence Award for the Best Interior Design for a Showcase Home.
+</p>
+<p>
+<b>2012 MAX Award for Best Product Design for a Custom Home For the second year in a row.</b>  The Homebuilders Association of Greater Austin awarded us a Marketing and Advertising Excellence Award for the Best Product Design for a Custom Home for 2012.
+</p>
+<p>
+<b>2011 MAX Award for Best Product Design for a Custom Home</b>  The Homebuilders Association of Greater Austin awarded us a Marketing and Advertising Excellence Award for the Best Product Design for a Custom Home for 2011.
+</p>
+<p>
+<b>2009 Star Award Finalist for Best Kitchen</b> The Texas Association of Builders recently recognized Silverton Custom Homes’ kitchen planning, execution, and attention to detail by selecting our first entry as a finalist for a Star Award for Best Kitchen.
+<p>
+<br />
+<br />
+<br />
+
+</div>
 </div>
 </div>
