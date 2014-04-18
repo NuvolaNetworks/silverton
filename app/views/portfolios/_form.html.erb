@@ -77,11 +77,11 @@
   </div>
   <div class="field">
     <%= f.label :image7, "Image 7" %><br>
-<% if f.object.new_record? | @portfolio.image5.blank? %>
+<% if f.object.new_record? | @portfolio.image7.blank? %>
 <%= f.file_field :image7 %>
 <% else %>
 <%= f.file_field :image7 %>
-      <%#<%= link_to File.basename(f.object.image15.url), f.object.image15.url %>
+      %#<%= link_to File.basename(f.object.image7.url), f.object.image7.url %>
         <% end %>
   </div>
   <div class="field">
