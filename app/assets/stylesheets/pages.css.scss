@@ -279,7 +279,8 @@ pointer-events: none;
 }
 
 #remodel img {
-	width:300px;
+	display:inline-block;
+	max-width:300px;
 	margin:15px;
 	border-radius: 6px;
 }
