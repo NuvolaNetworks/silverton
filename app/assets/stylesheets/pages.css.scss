@@ -280,7 +280,7 @@ pointer-events: none;
 
 #remodel img {
 	display:inline-block;
-	max-width:300px;
-	margin:15px;
-	border-radius: 6px;
+	max-width:300px !important;
+	margin:15px !important;
+	border-radius: 6px !important;
 }
