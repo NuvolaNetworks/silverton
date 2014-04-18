@@ -10,9 +10,13 @@
 #portfolio_images img {
 	border-radius: 6px;
 	box-shadow: 5px 5px 5px #888;
-
-
 }
+
+#portfolio_images {
+	border: solid 2px #888
+	border-radius: 6px;	
+}
+
 #portfolio_show {
 position:fixed;
 width:100%;
