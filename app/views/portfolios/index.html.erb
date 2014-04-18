@@ -5,7 +5,7 @@
 
 
                       <% @portfolios.each do |portfolio| %>
-                      <div id="portfolio_images" class="col-md-3 text-center">
+                      <div id="portfolio_images" class="col-md-4 text-center">
                           <p><%= link_to image_tag(portfolio.image.url), portfolio_path(portfolio) %></p>
                           <h4><%= portfolio.title %></h4>
 
