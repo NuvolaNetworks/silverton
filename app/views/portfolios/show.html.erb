@@ -265,7 +265,11 @@ $( ".up3" ).click(function() {
     <icon id="down2_icon" class="down2 fa fa-chevron-down"></icon>
     <icon id="down3_icon" class="down_max fa fa-chevron-down"></icon>
   </div>
-  <%#<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> 
+  <% if user_signed_in? %>
+  <% if current_user.has_role? :admin %>
+  <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>  | 
+  <% end %>
+  <% end %>
 <%= link_to 'Back', portfolios_path %><br /><br />
 
 </div>

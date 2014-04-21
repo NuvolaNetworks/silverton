@@ -8,16 +8,24 @@
                       <div id="portfolio_images" class="col-md-4 text-center">
                           <p><%= link_to image_tag(portfolio.image.url), portfolio_path(portfolio) %></p>
                           <h4><%= portfolio.title %></h4>
+                          <% if user_signed_in? %>
+                          <% if current_user.has_role? :admin %>
 
-                          <%#<%= link_to 'Edit', edit_portfolio_path(portfolio) %>
-                          <%#<%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <%= link_to 'Edit', edit_portfolio_path(portfolio) %>
+                          <%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% end %>
+                          <% end %>
                       </div>  
                       <% end %>
 
 
                   <br /></br /><br />
                   <div class="col-md-12"><br /><br /><br />
-                  <%#<%= link_to 'New Portfolio', new_portfolio_path, class: "btn btn-sm" %>
+                    <% if user_signed_in? %>
+                    <% if current_user.has_role? :admin %>
+                  <%= link_to 'New Portfolio', new_portfolio_path, class: "btn btn-sm" %>
+                  <% end %>
+                  <% end %>
                   </div>
          </div>
     </div>

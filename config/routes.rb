@@ -1,4 +1,5 @@
 Silverton::Application.routes.draw do
+  devise_for :users
   resources :portfolios
 
   get "pages/home"
