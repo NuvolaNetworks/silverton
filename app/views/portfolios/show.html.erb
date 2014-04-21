@@ -1,3 +1,4 @@
+<div id="porty">
 <style type="text/css">
     ul#demo-block{ margin:0 15px 15px 15px; }
       ul#demo-block li{ margin:0 0 10px 0; padding:10px; display:inline; float:left; clear:both; color:#aaa; background:url('img/bg-black.png'); font:11px Helvetica, Arial, sans-serif; }
@@ -181,30 +182,16 @@ $( ".up3" ).click(function() {
 <p id="notice"><%= notice %></p>
 
           <div id="portfolio_show"><!-- class="col-md-9">-->
+            
 
-<div id="portfolio_main">
+<div id="portfolio_main" class="col-md-10 col-md-offset-2">
     
       <center>
       <%= image_tag(@portfolio.image.url) %>
     </center>
     
 </div>
-<!--
-<div id="portfolio_text">
 
-  <center>
-
-  <h2><%#<%= @portfolio.title %><br /></h2>
-
-</center>
-
-
-<p>
-  <%#<%= @portfolio.description.to_s.html_safe %>
-</p>
-</div>
--->
-</div>
 <div id='portfolio_thumb' class="col-md-2 text-center">
 
 
@@ -272,6 +259,22 @@ $( ".up3" ).click(function() {
   <% end %>
 <%= link_to 'Back', portfolios_path %><br /><br />
 
+</div>
+<!--
+<div id="portfolio_text">
+
+  <center>
+
+  <h2><%#<%= @portfolio.title %><br /></h2>
+
+</center>
+
+
+<p>
+  <%#<%= @portfolio.description.to_s.html_safe %>
+</p>
+</div>
+-->
 </div>
 
 
