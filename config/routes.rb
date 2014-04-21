@@ -30,7 +30,7 @@ Silverton::Application.routes.draw do
   get '/remodeling' => 'pages#remodeling'
   get '/parade_info' => 'pages#parade_info'
   get '/thanks_contact' => 'pages#thanks_contact'
-  get '/custom-home-gallery/2013-southern-living-showcase-home/' => 'portfolio#index'
+  get '/custom-home-gallery/2013-southern-living-showcase-home/' => 'portfolios#index'
 
   root :to => 'pages#home'
 
