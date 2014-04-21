@@ -53,4 +53,7 @@ class PagesController < ApplicationController
   def remodeling 
   end
 
+  def thanks_contact
+  end
+
 end
