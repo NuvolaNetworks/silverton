@@ -17,14 +17,16 @@
 }
 
 #portfolio_show {
-position:fixed center center;
+background:#888;
+background-image: url("overlay.png");
+position:fixed;
 width:100%;
 height: 100%;
 
 }
 #portfolio_show img {
 position: absolute; 
-width:100%;
+height:100%;
   top: 0; 
   left: 0; 
   right: 0; 
