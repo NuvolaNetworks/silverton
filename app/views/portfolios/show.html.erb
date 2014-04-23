@@ -31,93 +31,93 @@ $(document).ready(function() {
 
   $('#image').click(function(e){
     e.preventDefault();
-    $('#portfolio_main').html($('#image').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image').html());
+    $('#portfolio_main td').show("fast");
 });
 
 $('#image2').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image2').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image2').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 
 $('#image3').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image3').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image3').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image4').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image4').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image4').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 
 $('#image5').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image5').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image5').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image6').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image6').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image6').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image7').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image7').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image7').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image8').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image8').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image8').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image9').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image9').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image9').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image10').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image10').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image10').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image11').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image11').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image11').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image12').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image12').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image12').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
 $('#image11').click(function(e){
   e.preventDefault();
-    $('#portfolio_main').html($('#image11').html());
-    $('#portfolio_main').show("fast");
+    $('#portfolio_main td').html($('#image11').html());
+    $('#portfolio_main td').show("fast");
 
 
 });
@@ -184,13 +184,13 @@ $( ".up3" ).click(function() {
           <div id="portfolio_show"><!-- class="col-md-9">-->
             
 
-<div id="portfolio_main" class="col-md-10 col-md-offset-2">
+<table id="portfolio_main" class="col-md-10 col-md-offset-2">
     
       <center>
-      <%= image_tag(@portfolio.image.url) %>
+      <td><%= image_tag(@portfolio.image.url) %></td>
     </center>
     
-</div>
+</table>
 
 <div id='portfolio_thumb' class="col-md-2 text-center">
 
