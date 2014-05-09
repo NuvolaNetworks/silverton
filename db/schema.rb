@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140508235236) do
+ActiveRecord::Schema.define(version: 20140509002455) do
 
   create_table "jobs", force: true do |t|
     t.string   "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140508235236) do
     t.integer  "imagep2_file_size"
     t.datetime "imagep2_updated_at"
     t.integer  "order"
+    t.integer  "order2"
   end
 
   create_table "roles", force: true do |t|

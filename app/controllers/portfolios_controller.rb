@@ -3,7 +3,7 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios
   def index
-    @portfolios = Portfolio.all.sort_by &:order
+    @portfolios = Portfolio.find(:all, :order => 'description')
   end
 
   # GET /portfolios/1
