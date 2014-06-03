@@ -17,4 +17,24 @@ class Portfolio < ActiveRecord::Base
   mount_uploader :image12, PortfolioUploader
   mount_uploader :image14, PortfolioUploader
   mount_uploader :image15, PortfolioUploader
+  mount_uploader :image16, PortfolioUploader
+  mount_uploader :image17, PortfolioUploader
+  mount_uploader :image18, PortfolioUploader
+  mount_uploader :image19, PortfolioUploader
+  mount_uploader :image20, PortfolioUploader
+  mount_uploader :image21, PortfolioUploader
+  mount_uploader :image22, PortfolioUploader
+  mount_uploader :image23, PortfolioUploader
+  mount_uploader :image24, PortfolioUploader
+  mount_uploader :image25, PortfolioUploader
+  mount_uploader :image26, PortfolioUploader
+  mount_uploader :image27, PortfolioUploader
+  mount_uploader :image28, PortfolioUploader
+  mount_uploader :image29, PortfolioUploader
+  mount_uploader :image30, PortfolioUploader
+  mount_uploader :image31, PortfolioUploader
+  mount_uploader :image32, PortfolioUploader
+  mount_uploader :image33, PortfolioUploader
+  mount_uploader :image34, PortfolioUploader
+  mount_uploader :image35, PortfolioUploader
 end

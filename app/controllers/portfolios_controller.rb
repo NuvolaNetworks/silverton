@@ -8,7 +8,7 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/1
   def show
-  end
+ end
 
   # GET /portfolios/new
   def new
