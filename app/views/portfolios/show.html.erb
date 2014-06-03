@@ -114,11 +114,86 @@ $('#image12').click(function(e){
 
 
 });
-$('#image11').click(function(e){
+$('#image14').click(function(e){
   e.preventDefault();
-    $('#portfolio_main td').html($('#image11').html());
+    $('#portfolio_main td').html($('#image14').html());
     $('#portfolio_main td').show("fast");
 
+
+});
+$('#image15').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image15').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image16').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image16').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image17').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image17').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image18').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image18').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image19').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image19').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image20').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image20').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+
+$('#image21').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image21').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image22').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image22').html());
+    $('#portfolio_main td').show("fast");
+
+
+});
+$('#image23').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image23').html());
+    $('#portfolio_main td').show("fast");
+
+});
+$('#image24').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image24').html());
+    $('#portfolio_main td').show("fast");
+
+});
+$('#image25').click(function(e){
+  e.preventDefault();
+    $('#portfolio_main td').html($('#image25').html());
+    $('#portfolio_main td').show("fast");
 
 });
   });
@@ -168,11 +243,55 @@ $( ".up2" ).click(function() {
 $( ".down3" ).click(function() {
   $( "#thirdgroup" ).toggle( "fast") 
   $("#fourthgroup").toggle("fast")
+  $( "#fourthgroup_icon" ).toggle( "fast") 
+  $("#thirdgroup_icon").toggle("fast")
+  $("#down3_icon").toggle("fast")
+  $("#down4_icon").toggle("fast")
 
   });
 $( ".up3" ).click(function() {
   $( "#fourthgroup" ).toggle( "fast") 
   $("#thirdgroup").toggle("fast")
+  $( "#fourthgroup_icon" ).toggle( "fast") 
+  $("#thirdgroup_icon").toggle("fast")
+  $("#down3_icon").toggle("fast")
+  $("#down4_icon").toggle("fast")
+
+  });
+$( ".down4" ).click(function() {
+  $( "#fourthgroup" ).toggle( "fast") 
+  $("#fithgroup").toggle("fast")
+  $( "#fourthgroup_icon" ).toggle( "fast") 
+  $("#fithgroup_icon").toggle("fast")
+  $("#down5_icon").toggle("fast")
+  $("#down4_icon").toggle("fast")
+
+  });
+$( ".up4" ).click(function() {
+  $( "#fithgroup" ).toggle( "fast") 
+  $("#fourthgroup").toggle("fast")
+  $( "#fourthgroup_icon" ).toggle( "fast") 
+  $("#fithgroup_icon").toggle("fast")
+  $("#down5_icon").toggle("fast")
+  $("#down4_icon").toggle("fast")
+
+  });
+$( ".down5" ).click(function() {
+  $( "#fithgroup" ).toggle( "fast") 
+  $("#sixthgroup").toggle("fast")
+  $( "#sixthgroup_icon" ).toggle( "fast") 
+  $("#fithgroup_icon").toggle("fast")
+  $("#down5_icon").toggle("fast")
+  $("#down6_icon").toggle("fast")
+
+  });
+$( ".up5" ).click(function() {
+  $( "#sixthgroup" ).toggle( "fast") 
+  $("#fithgroup").toggle("fast")
+  $( "#sixthgroup_icon" ).toggle( "fast") 
+  $("#fithgroup_icon").toggle("fast")
+  $("#down5_icon").toggle("fast")
+  $("#down6_icon").toggle("fast")
 
   });
 });
@@ -199,6 +318,9 @@ $( ".up3" ).click(function() {
     <icon id="firstgroup_icon" class="up-max-icon fa fa-chevron-up"></icon>
     <icon id="secondgroup_icon" class="up fa fa-chevron-up"></icon>
     <icon id="thirdgroup_icon" class="up2 fa fa-chevron-up"></icon>
+    <icon id="fourthgroup_icon" class="up4 fa fa-chevron-up"></icon>
+    <icon id="fithgroup_icon" class="up5 fa fa-chevron-up"></icon>
+    <icon id="sixthgroup_icon" class="up6 fa fa-chevron-up"></icon>
   </div>
   <div id="firstgroup">
     
@@ -246,11 +368,55 @@ $( ".up3" ).click(function() {
 <pic id="image12">
   <%= image_tag(@portfolio.image12.url) %>
 </pic>
+<div id="fourthgroup">
+<pic id="image14">
+  <%= image_tag(@portfolio.image14.url) %>
+</pic>
+<pic id="image15">
+  <%= image_tag(@portfolio.image15.url) %>
+</pic>
+<pic id="image16">
+  <%= image_tag(@portfolio.image16.url) %>
+</pic>
+<pic id="image17">
+  <%= image_tag(@portfolio.image17.url) %>
+</pic>
+</div>
+<div id="fithgroup">
+<pic id="image18">
+  <%= image_tag(@portfolio.image18.url) %>
+</pic>
+<pic id="image19">
+  <%= image_tag(@portfolio.image19.url) %>
+</pic>
+<pic id="image20">
+  <%= image_tag(@portfolio.image20.url) %>
+</pic>
+<pic id="image21">
+  <%= image_tag(@portfolio.image21.url) %>
+</pic>
+</div>
+<div id="sixthgroup">
+<pic id="image22">
+  <%= image_tag(@portfolio.image22.url) %>
+</pic>
+<pic id="image23">
+  <%= image_tag(@portfolio.image23.url) %>
+</pic>
+<pic id="image24">
+  <%= image_tag(@portfolio.image24.url) %>
+</pic>
+<pic id="image25">
+  <%= image_tag(@portfolio.image25.url) %>
+</pic>
 </div>
   <div id="slide_icons_down">
     <icon id="down1_icon" class="down fa fa-chevron-down"></icon>
     <icon id="down2_icon" class="down2 fa fa-chevron-down"></icon>
-    <icon id="down3_icon" class="down_max fa fa-chevron-down"></icon>
+    <icon id="down3_icon" class="down3 fa fa-chevron-down"></icon>
+    <icon id="down4_icon" class="down4 fa fa-chevron-down"></icon>
+    <icon id="down5_icon" class="down5 fa fa-chevron-down"></icon>
+    <icon id="down6_icon" class="down6 fa fa-chevron-down"></icon>
   </div>
   <% if user_signed_in? %>
   <% if current_user.has_role? :admin %>
