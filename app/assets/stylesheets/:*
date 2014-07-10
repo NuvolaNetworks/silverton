@@ -1,0 +1,398 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package org.adrn.beans;
+
+import com.pharospoint.utilities.MiscFunctions;
+import com.pharospoint.utilities.login;
+import books.ADRNCart;
+import java.sql.*;
+
+/**
+ *
+ * @author Greg
+ */
+public class adrnUserBean {
+    private String adrnUser;
+    private String wp;
+    private boolean bLoggedIn = false;
+    private ADRNCart cart;
+    private login adrnLogin;
+    private String message;
+    private int loginError;
+    private String cHomeDir = "https://www.adrnvolunteer.com/";
+    String adrnCTL="";
+
+    public adrnUserBean(){
+        adrnLogin = new login();
+
+        this.adrnUser = "";
+        cart = new ADRNCart();
+    }
+
+    public void setUsername(String newUser){
+        this.adrnUser = newUser;
+    }
+
+    public void setWp(String pw){
+        this.wp = pw;
+    }
+
+    public void setLoginuser(){
+        //if (loginUser(this.adrnUser,this.wp)){
+        this.message = loginUser(this.adrnUser,this.wp);
+        if (this.message.contains("Success")){
+            this.bLoggedIn = true;
+            this.loginError = 0;
+        }
+        else{
+            this.adrnUser = "";
+            this.bLoggedIn = false;
+            this.loginError = 99;
+        }
+    }
+
+    public void setLogoutuser(){
+        if (this.bLoggedIn) {
+            this.bLoggedIn = false;
+            this.adrnUser = "";
+            this.wp = "";
+            this.cart.getClearCart();
+            this.adrnLogin.logOut();
+            this.loginError = 0;
+        }
+    }
+
+    public String getLoggedin() {
+        String cRetval = "0";
+
+        if (this.bLoggedIn) {
+            cRetval = "1";
+        }
+
+        return cRetval;
+    }
+    public void setCartitem(String itemCode){
+        cart.setItem(itemCode);
+    }
+
+    public void setRemovecartitem(String itemCode){
+        cart.removeItem(itemCode);
+    }
+
+    public String getCarttotal(){
+        return cart.getCarttotal();
+    }
+
+    public Double getCarttotalvalue(){
+        // Return total without currency prefix
+        return cart.getCarttotalvalue();
+    }
+
+    public String getCartlist(){
+        return cart.getCartlist();
+    }
+
+    public String getCartcodes(){
+        return cart.getCartcodes();
+    }
+
+    public String getPaypalcartfields(){
+        return cart.getPaypalCartFields();
+    }
+
+    public String getClearcart() {
+        cart.getClearCart();
+        return "Cart cleared.";
+    }
+
+    public String getCartregistration() {
+        //  Register user for each event item in cart.
+        String cRetVal = "";
+        String htmlText = "";
+        int iElement = 0;
+        String sqlStatement;
+        String sqlUpdateStatement;
+        String sqlVerifyStatement;
+        //ResultSet rs;
+        String classID;
+        String eventID;
+        Connection connection = null;
+        int iItems, i;
+        String eventDate, eventName;
+        String notifyEmail, notifySubject, notifyBody;
+        int iResult, iRowCount;
+        MiscFunctions mf;
+        String mailResult;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/vdb?user=greg&password=G4rz4Gr3g!!");
+            //return "";
+            //sqlStatement = "SELECT * FROM user WHERE name='".concat(userName).concat("';");
+            //Statement sql = connection.createStatement();
+            //rs = sql.executeQuery(sqlStatement);
+
+            iItems = cart.getCartSize();
+
+        for (i = 0; i < iItems; i++) {
+            if (cart.getItemQuantity(i) < 1) {
+                continue;
+                // break;  // This is not registering subsequent items
+            }
+                eventID = cart.getCartItemCode(i);
+                //connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ggadrn_adrnvolunteer?user=ggadrn_user&password=user123");
+
+                sqlVerifyStatement = "SELECT * FROM eventregistration WHERE eventid=" + eventID + " AND userid=" + getUserID();
+                Statement sqlVerify = connection.createStatement();
+                ResultSet rsVerify;
+                rsVerify = sqlVerify.executeQuery(sqlVerifyStatement);
+                rsVerify.last();
+                iRowCount = rsVerify.getRow();
+                
+                sqlStatement = "SELECT * FROM event WHERE id=" + eventID + "";
+                Statement sql = connection.createStatement();
+                ResultSet rs;
+                rs = sql.executeQuery(sqlStatement);
+                rs.next();
+
+                if (iRowCount > 0) {
+                    eventName = rs.getString("eventname");
+                    cRetVal += "<h3>You are already registered for " + eventName + ".</h3><br/>";
+                    continue;
+                }
+
+                //sqlStatement = "SELECT * FROM event WHERE id=" + eventID + "";
+                //Statement sql = connection.createStatement();
+                //ResultSet rs;
+                //rs = sql.executeQuery(sqlStatement);
+
+                //while (rs.next()) {
+                    classID = rs.getString("classid");
+                    eventDate = rs.getString("startdate");
+                    eventName = rs.getString("eventname");
+                    notifyEmail = rs.getString("notificationemail");
+                    notifySubject = "ADRN Event Registration";
+                    notifyBody = this.adrnLogin.getUserfullname() + " has registered for " + eventName + " on " + eventDate + ".";
+
+                    sqlUpdateStatement = "INSERT INTO eventregistration (eventid, classid, userid, eventdate) "
+                                         + "VALUES (" + eventID + "," + classID + "," + getUserID() + ",\"" + eventDate + "\")";
+
+                    Statement sqlUpdate = connection.createStatement();
+                    iResult = sqlUpdate.executeUpdate(sqlUpdateStatement);
+
+                    if (notifyEmail==null || notifyEmail.trim().equals("")) {
+                        notifyEmail = "admin@adrntx.org";
+                    }
+                    mf = new MiscFunctions();
+                    mailResult = mf.sendMail(notifyEmail, notifySubject, notifyBody);
+
+                    if (this.getUseremail()==null || this.getUseremail().trim().equals("")) {
+                        notifyEmail = "admin@adrntx.org";
+                    }
+                    else {
+                        notifyEmail = this.getUseremail();
+                    }
+
+                    notifyBody = "Hello, " + this.adrnLogin.getUserfullname().trim() + ".  You have registered for " + eventName + " on " + eventDate + ".  Please mark this important date in your calendar.<br><br>"
+                               + "If your training requires for you to complete a background check, please <a href=\"https://enterprise.s2verify.com/mvp-o/v09/orderView.cfm?ordertype=swifthireopen&ucid=3198&ugid=E1AC97CB-AA70-486F-AF7B-9E1263826ADF&pid=1361&pgid=AD32C9AA-239A-48FC-BDBA-A295D39B627A\">click here</a>.  "
+                               + "To pay the $10 background check/badge fee now, please go to <a href=\"" + cHomeDir + "/secureuserlookup.jsp\">this page</a> and click on the \"Pay Now\" button.  For more information, please e-mail <a href=\"mailto:admin@adrntx.org\">admin@adrntx.org</a>.<br><br>"
+                               + "Thank you for your registration!<br><br>"
+                               + "Sincerely,<br><br>"
+                               + "ADRN Training Team<br><br>"
+                               + "**ADRN Training that requires a background check: CERT, CISM, Chaplaincy, and/or Disaster Relief Shepherd (DRS) Training";
+
+                    mailResult = mf.sendMail(notifyEmail, notifySubject, notifyBody);
+                //}
+
+        }
+
+            connection.close();
+
+        } catch (SQLException sqle) {
+            return "SQLError ".concat(Integer.toString(sqle.getErrorCode())).concat(": ").concat(sqle.toString());
+        } catch (Exception e) {
+            return "Exception: ".concat(e.toString());
+        }
+
+        return cRetVal;
+    }
+
+    public String getUsername(){
+        return this.adrnUser;
+    }
+
+    public String getUserfullname(){
+        return this.adrnLogin.getUserfullname();
+    }
+
+    public String getUserfirstname(){
+        return this.adrnLogin.getUserfirstname();
+    }
+    public String getUserlastname(){
+        return this.adrnLogin.getUserlastname();
+    }
+
+    public String getUseremail(){
+        return this.adrnLogin.getUseremail();
+    }
+
+    public String getLoginerrormessage(){
+        return adrnLogin.getErrormessage();
+    }
+
+    public String getMenuitem(){
+        String htmlText;
+        //String url = "room1/admin_event_home.jsp";
+        String url; // = "room1/userhome.jsp";
+        String menuName;
+        String url2; // = "room1/userhome.jsp";
+        String menuName2;
+
+        if (getSitelevelnum()>=7) {
+            url = cHomeDir + "/room1/userhome.jsp";
+            menuName = "Admin";
+        }
+        else if (getSitelevelnum()==6) {
+            url = cHomeDir + "/room1/drchome.jsp";
+            menuName = "Manager";
+        }
+        else if (getSitelevelnum()==5) {
+            url = cHomeDir + "/room1/drchome.jsp";
+            menuName = "DRC";
+            
+        }
+        else {
+            url = cHomeDir + "/room1/volunteerhome.jsp";
+            menuName = "Volunteer";
+        }
+        if (getSitelevelnum()==5) {
+            url2 = cHomeDir + "/room1/ctlhome.jsp?adrnCTL=1";
+            menuName2 = "Core Team Leader";
+        }else{
+                url2 = cHomeDir + "/room1/drchome.jsp";
+                menuName2 = "";
+            }
+
+        if (this.bLoggedIn) {
+//          htmlText = "<li><a href=\"" + url +"\">Admin</a></li>";
+//          htmlText = "<li><a href=\"" + url +"\">" + menuName + "</a></li>";
+            htmlText = "<h3><a href=\"" + cHomeDir + "/room1/userprofile.jsp?userid=" + getUserID() + "\">View My Profile</a></h3><br>";
+            htmlText += "<h3><a href=\"" + cHomeDir + "/room1/eventcalendar.jsp\"> Register for Training</a></h3><br>";
+            if (getSitelevelnum()>=5) {
+                htmlText += "<h3><a href=\"" + url +"\">Enter as " + menuName + "</a></h3><br />";
+            }
+                if (getSitelevelnum()==5) {
+                htmlText += "<h3><a href=\"" + url2 +"\">Enter as " + menuName2 + "</a></h3><br />";
+            }
+        }
+        else {
+            htmlText = "";
+        }
+
+        return htmlText;
+    }
+
+    public String getUsermenuitem(){
+        String htmlText;
+        //String url = "room1/admin_event_home.jsp";
+        String url; // = "room1/userhome.jsp";
+        String menuName;
+
+        if (getSitelevelnum()>=8) {
+            url = cHomeDir + "/room1/userhome.jsp";
+            menuName = "My Home";
+        }
+        else if (getSitelevelnum()>=6) {
+            url = cHomeDir + "/room1/mgrhome.jsp";
+            menuName = "My Home";
+        }
+        else if (getSitelevelnum()==5) {
+            url = cHomeDir + "/room1/drchome.jsp";
+            menuName = "My Home";
+        }
+        else {
+            url = cHomeDir + "/room1/volunteerhome.jsp";
+            menuName = "My Home";
+        }
+
+        if (this.bLoggedIn)
+//          htmlText = "<li><a href=\"" + url +"\">Admin</a></li>";
+            htmlText = "<li><a href=\"" + url +"\">" + menuName + "</a></li>";
+        else
+            htmlText = "";
+
+        return htmlText;
+    }
+
+    public String getLoginpanel(){
+        String htmlText;
+        String htmlMsg = "";
+
+        if (!this.bLoggedIn){
+            if (this.loginError == 99) {
+                // htmlMsg = "Login failed. Invalid username or password.";
+                htmlMsg = this.message;
+                this.loginError = 0;
+            }
+            htmlText = "<form name=\"loginForm\" action=\"" + cHomeDir + "/index.jsp\" method=\"POST\">"
+                     + "Username:<br/><input type=\"text\" name=\"username\" size=\"12\"/><br/><br/>"
+                     + "Password:<br/><input type=\"password\" name=\"wp\" size=\"13\"/><br/><br/>"
+                     + "<input type=\"submit\" value=\"Login\"/></form><br/><br/>" + htmlMsg;
+//                   + "<a href=\"https://adrnvolunteer.org/secureuserlookup.jsp\">Forgot username or password</a>";
+//                   + "<a href=\"https://adrnvolunteer.org/secureuserlookup.jsp\">Existing User</a>" //+ htmlMsg;
+//                   + "&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"https://adrnvolunteer.org/room1/newuserprofile.jsp\">New User</a>";
+        }
+        else{
+            htmlText = "<p>Logged in as " + this.adrnUser + "</p>"
+                     + "<form name=\"logoutForm\" action=\"index.jsp\" method=\"POST\">"
+                     + "<input type=\"hidden\" name=\"username\" value=\"*log*out*\">"
+                     + "<input type=\"submit\" value=\"Logout\"/></form>"; // + this.message;
+//                   + "<a href=\"https://adrnvolunteer.org/room1/userprofile.jsp?userid=" + getUserID() + "\">My Profile</a><br/><br/>"
+//                   + "<a href=\"/adrn/room1/userprofile.jsp?userid=" + getUserID() + "\"><h3>Manage Profile</h3></a><br/>"
+//                   + "<a href=\"https://www.pharospoint.com/adrn/room1/userprofile.jsp?userid=" + getUserID() + "\"><h3>Manage Profile</h3></a><br/>"
+//                   + "<a href=\"https://adrnvolunteer.org/room1/userprofile.jsp?userid=" + getUserID() + "\">Manage Profile</a><br/><br/>"
+
+        }
+
+        return htmlText;
+    }
+
+    public int getUserID(){
+        return this.adrnLogin.getUserID();
+    }
+
+    public int getSitelevelnum(){
+        return this.adrnLogin.getSitelevelnum();
+    }
+    
+    
+    public String getStatus(){
+        return this.adrnLogin.getStatus();
+    }
+
+    private String loginUser(String newUser, String wp){
+//    private boolean loginUser(String newUser, String wp){
+        String loginResultString = "";
+        boolean bResult;
+
+//      login adrnLogin = new login();
+//      adrnLogin = new login();
+
+        loginResultString = adrnLogin.validateLogin(newUser, wp);
+
+        if (loginResultString.contains("Success")){
+            //bResult = true;
+            return loginResultString;
+        }
+        else{
+            //bResult = false;
+            return loginResultString;
+        }
+        //return bResult;
+        //return loginResultString;
+    }
+}
+m
