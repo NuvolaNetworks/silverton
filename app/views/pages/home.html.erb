@@ -19,20 +19,21 @@
 
 <h4>Building Award Winning Homes Since 1993</h4>
 <br />
-
-<center><h4>Texas Monthly Star Home</h4></center>
-<ul>
-  <li>Voted Best of Show 2014</li>
-  <li>Voted People's Choice 2014</li>
-</ul>
+<div id="awardInfo">
+  <center><h4>Texas Monthly Star Home</h4></center>
+  <ul>
+    <li>Voted Best of Show 2014</li>
+    <li>Voted People's Choice 2014</li>
+  </ul>
+</div>
 <div id="first" class="col-md-4">
-          <%= image_tag "https://www.nuvolio.com/uploads/plan/image2/773/Back_Exterior.jpg" %>
+          <%= image_tag "Back_Exterior.jpg" %>
         </div>
         <div id="second" class="col-md-4">
-          <%= image_tag "dvparade.jpg" %>
+          <%= image_tag "dvparade2.jpg" %>
         </div>
         <div id="third" class="col-md-4">
-          <%= image_tag "Back2.jpg" %><br />
+          <%= image_tag "Back3.jpg" %><br />
         </div>
 
 <center><a href="#southern_living" class="btn btn-primary">More Info</a></center>
@@ -43,7 +44,7 @@
            <div class="item active"> 
         <!--        <div class="fill">  -->
                 	<div id="frontimage">
-						          <p><%= image_tag("Back_Exterior.jpg") %></p>
+						          <p><img src="/assets/Back_Exterior.jpg" class="frontImage" /></p>
 					         </div>
               <!--  </div>  -->
    <!--                
@@ -201,6 +202,26 @@ At Silverton Custom Homes we understand the emotional and financial investment t
             </div>
           </div>
       </div>
+
+<script>
+  $(document).ready(function(){
+    $('#first').click(function(e){
+      $(".frontImage").attr("src", "/assets/Back_Exterior.jpg");
+      $( "#awardInfo" ).html( "<center><h4>Texas Monthly Star Home</h4></center> <ul><li>Voted Best of Show</li><li>Voted People's Choice Award</li></ul>");
+      $('.frontImage').show();
+    });
+    $('#second').click(function(e){
+      $(".frontImage").attr("src", "/assets/dvparade2.jpg");
+      $( "#awardInfo" ).html( "<center><h4>2014 Parade Home</h4></center><ul><li>Voted Best Floor Plan</li><li>Best Family Room</li></ul>");
+      $('.frontImage').show();
+    });
+    $('#third').click(function(e){
+      $(".frontImage").attr("src", "/assets/Back3.jpg");
+      $( "#awardInfo" ).html( "<center><h4>FlintRock Home</h4></center> <ul><li>Max Award Winner</li><li>Best Product Design</li></ul>");
+      $('.frontImage').show();
+    });
+  });
+</script>
 
 
 
