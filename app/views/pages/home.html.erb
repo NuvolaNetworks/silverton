@@ -15,7 +15,7 @@
           
       <div class="overlayMain" id="overlayMain"> 
 <div id="port-text" class="col-md-3"> 
-  <%= image_tag("Silverton-Logo-Transparent-small2.png") %>
+  <center><%= image_tag("Silverton-Logo-Transparent-small2.png") %></center>
 
 <h4>Building Award Winning Homes Since 1993</h4>
 <br />
@@ -27,13 +27,13 @@
   </ul>
 </div>
 <div id="first" class="col-md-4">
-        <a> <%= image_tag "Back_Exterior.jpg" %></a>
+        <a href="#"><%= image_tag "Back_Exterior.jpg" %></a>
         </div>
         <div id="second" class="col-md-4">
-           <%= image_tag "dvparade2.jpg" %>
+           <a href="#"><%= image_tag "dvparade2.jpg" %></a>
         </div>
         <div id="third" class="col-md-4">
-          <%= image_tag "Back3.jpg" %><br />
+          <a href="#"><%= image_tag "Back3.jpg" %></a><br />
         </div>
 
 <center><a href="#southern_living" class="btn btn-primary">More Info</a></center>
@@ -212,12 +212,12 @@ At Silverton Custom Homes we understand the emotional and financial investment t
     });
     $('#second').click(function(e){
       $(".frontImage").attr("src", "/assets/dvparade2.jpg");
-      $( "#awardInfo" ).html( "<center><h4>2014 Parade Home</h4></center><ul><li>Voted Best Floor Plan</li><li>Best Family Room</li></ul>");
+      $( "#awardInfo" ).html( "<center><h4>2014 Parade Home</h4></center><ul><li>Voted Best Floor Plan</li><li>Voted Best Family Room</li></ul>");
       $('.frontImage').show();
     });
     $('#third').click(function(e){
       $(".frontImage").attr("src", "/assets/Back3.jpg");
-      $( "#awardInfo" ).html( "<center><h4>FlintRock Home</h4></center> <ul><li>Max Award Winner</li><li>Best Product Design</li></ul>");
+      $( "#awardInfo" ).html( "<center><h4>FlintRock Home</h4></center> <ul><li>Max Award Winner</li><li>Voted Best Product Design</li></ul>");
       $('.frontImage').show();
     });
   });
