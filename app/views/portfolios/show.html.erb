@@ -319,12 +319,7 @@ $( ".up6" ).click(function() {
 
 
   <div id="slide_icons_up">
-    <icon id="firstgroup_icon" class="up-max-icon fa fa-chevron-up"></icon>
-    <icon id="secondgroup_icon" class="up fa fa-chevron-up"></icon>
-    <icon id="thirdgroup_icon" class="up2 fa fa-chevron-up"></icon>
-    <icon id="fourthgroup_icon" class="up4 fa fa-chevron-up"></icon>
-    <icon id="fithgroup_icon" class="up5 fa fa-chevron-up"></icon>
-    <icon id="sixthgroup_icon" class="up6 fa fa-chevron-up"></icon>
+    <%= link_to 'Back', portfolios_path %><br />
   </div>
   <div id="firstgroup">
     
@@ -358,8 +353,8 @@ $( ".up6" ).click(function() {
 <pic id="image8">
   <%= image_tag(@portfolio.image8.url) %>
 </pic>
-<!-- </div> -->
-<div id="thirdgroup">
+
+
 <pic id="image9">
   <%= image_tag(@portfolio.image9.url) %>
 </pic>
@@ -372,8 +367,8 @@ $( ".up6" ).click(function() {
 <pic id="image12">
   <%= image_tag(@portfolio.image12.url) %>
 </pic>
-</div>
-<div id="fourthgroup">
+
+
 <pic id="image14">
   <%= image_tag(@portfolio.image14.url) %>
 </pic>
@@ -386,8 +381,8 @@ $( ".up6" ).click(function() {
 <pic id="image17">
   <%= image_tag(@portfolio.image17.url) %>
 </pic>
-</div>
-<div id="fithgroup">
+
+
 <pic id="image18">
   <%= image_tag(@portfolio.image18.url) %>
 </pic>
@@ -400,8 +395,8 @@ $( ".up6" ).click(function() {
 <pic id="image21">
   <%= image_tag(@portfolio.image21.url) %>
 </pic>
-</div>
-<div id="sixthgroup">
+
+
 <pic id="image22">
   <%= image_tag(@portfolio.image22.url) %>
 </pic>
@@ -428,7 +423,7 @@ $( ".up6" ).click(function() {
   <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>  | 
   <% end %>
   <% end %>
-<%= link_to 'Back', portfolios_path %><br /><br />
+<%= link_to 'Back', portfolios_path %><br />
 
 </div>
 <!--
