@@ -338,8 +338,7 @@ $( ".up6" ).click(function() {
   <pic id="image4">
     <%= image_tag(@portfolio.image4.url) %>
   </pic>
-  </div>
- <!-- <div id="secondgroup"> -->
+
   <pic id="image5">
   <%= image_tag(@portfolio.image5.url) %>
 </pic>
@@ -411,12 +410,15 @@ $( ".up6" ).click(function() {
 </pic>
 
 
+
+  <div id="slide_icons_up">
   <% if user_signed_in? %>
   <% if current_user.has_role? :admin %>
   <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>  | 
   <% end %>
   <% end %>
-<%= link_to 'Back', portfolios_path %><br />
+    <%= link_to 'Back', portfolios_path %><br />
+  </div>
 
 </div>
 <!--
