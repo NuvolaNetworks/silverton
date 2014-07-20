@@ -409,15 +409,8 @@ $( ".up6" ).click(function() {
 <pic id="image25">
   <%= image_tag(@portfolio.image25.url) %>
 </pic>
-</div>
-  <div id="slide_icons_down">
-    <icon id="down1_icon" class="down fa fa-chevron-down"></icon>
-    <icon id="down2_icon" class="down2 fa fa-chevron-down"></icon>
-    <icon id="down3_icon" class="down3 fa fa-chevron-down"></icon>
-    <icon id="down4_icon" class="down4 fa fa-chevron-down"></icon>
-    <icon id="down5_icon" class="down5 fa fa-chevron-down"></icon>
-    <icon id="down6_icon" class="down6 fa fa-chevron-down"></icon>
-  </div>
+
+
   <% if user_signed_in? %>
   <% if current_user.has_role? :admin %>
   <%= link_to 'Edit', edit_portfolio_path(@portfolio) %>  | 
