@@ -871,7 +871,7 @@
 		// Elements							
 		thumb_tray			:	'#thumb-tray',	// Thumbnail tray
 		thumb_list			:	'#thumb-list',	// Thumbnail list
-		slide_list          :   '#slide-list',	// Slide link list
+	//	slide_list          :   '#slide-list',	// Slide link list
 		
 		// Internal variables
 		current_slide			:	0,			// Current slide number

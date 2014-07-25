@@ -311,7 +311,7 @@
 		slide_caption		:	'#slidecaption',	// Slide caption
 		slide_current		:	'.slidenumber',		// Current slide number
 		slide_total			:	'.totalslides',		// Total Slides
-		slide_list			:	'#slide-list',		// Slide jump list							
+		//slide_list			:	'#slide-list',		// Slide jump list							
 		
 		thumb_tray			:	'#thumb-tray',		// Thumbnail tray
 		thumb_list			:	'#thumb-list',		// Thumbnail list
