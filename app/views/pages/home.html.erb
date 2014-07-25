@@ -14,16 +14,18 @@
        <div class="carousel-inner">
           
       <div class="overlayMain" id="overlayMain"> 
-<div id="port-text" class="col-md-3"> 
+<div id="port-text" class="col-md-3 portTextMain"> 
   <center><%= image_tag("Silverton-Logo-Transparent-small2.png") %></center>
 
 <h4>Building Award Winning Homes Since 1993</h4>
-<br />
+<hr class="baseMargin" size="3" />
 <div id="awardInfo">
-  <center><h4>Texas Monthly Star Home</h4></center>
+  <center><h4>Named Texas Monthly Star Home</h4></center>
   <ul>
+    <li>2014 HBA Parade Home</li> 
     <li>Voted Best of Show 2014</li>
-    <li>Voted People's Choice 2014</li>
+    <li>Awarded People's Choice 2014</li>
+    <li>
   </ul>
 </div>
 <div id="first" class="col-md-4">
@@ -207,17 +209,17 @@ At Silverton Custom Homes we understand the emotional and financial investment t
   $(document).ready(function(){
     $('#first').click(function(e){
       $(".frontImage").attr("src", "/assets/Back_Exterior.jpg");
-      $( "#awardInfo" ).html( "<center><h4>Texas Monthly Star Home</h4></center> <ul><li>Voted Best of Show</li><li>Voted People's Choice Award</li></ul>");
+      $( "#awardInfo" ).html( "<center><h4>Texas Monthly Star Home</h4></center> <ul><li>2014 HBA Parade Home</li><li>Voted Best of Show</li><li>Voted People's Choice Award</li></ul>");
       $('.frontImage').show();
     });
     $('#second').click(function(e){
       $(".frontImage").attr("src", "/assets/dvparade2.jpg");
-      $( "#awardInfo" ).html( "<center><h4>2014 Parade Home</h4></center><ul><li>Voted Best Floor Plan</li><li>Voted Best Family Room</li></ul>");
+      $( "#awardInfo" ).html( "<center><h4>2014 Parade Home</h4></center><ul><li>Voted Best Floor Plan</li><li>Awarded Best Family Room</li><li>Voted best outdoor living</li></ul>");
       $('.frontImage').show();
     });
     $('#third').click(function(e){
       $(".frontImage").attr("src", "/assets/Back3.jpg");
-      $( "#awardInfo" ).html( "<center><h4>FlintRock Home</h4></center> <ul><li>Max Award Winner</li><li>Voted Best Product Design</li></ul>");
+      $( "#awardInfo" ).html( "<center><h4>2012 Award Winning Home</h4></center> <ul><li>HBA Max Award Winner</li><li>Voted Best Product Design</li></ul>");
       $('.frontImage').show();
     });
   });
