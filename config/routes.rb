@@ -31,6 +31,7 @@ Silverton::Application.routes.draw do
   get '/parade_info' => 'pages#parade_info'
   get '/thanks_contact' => 'pages#thanks_contact'
   get '/custom-home-gallery/2013-southern-living-showcase-home/' => 'portfolios#index'
+  get '/public/documents/Building_Process.pdf' => '/public/documents/Building_Process.pdf'
 
   root :to => 'pages#home'
 
