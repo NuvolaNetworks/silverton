@@ -21,6 +21,7 @@ body {
 	color: #efefef;
 	font-size: 120%;
 	clear:both;
+	border-top:solid 3px #888;
 }
 
 #footer_area {
@@ -48,8 +49,8 @@ text-align:center;
 	margin-top: 30px;
 }
 #featured_no_tierra img {
-	box-shadow: 5px 5px 5px 0px #888;
-	border-radius: 100%;
+/*	box-shadow: 5px 5px 5px 0px #888; */
+	/*border-radius: 100%;*/
 
 }
 #featured_no_tierra {
@@ -88,8 +89,9 @@ red {
 }
 
 .services {
-
-background: url("old_moon.png") fixed repeat;
+margin-right: 10px;
+margin-left: 10px;
+background: #fff; 
 display:inline-block;
 margin-top:30px;
 border-top:solid 3px #888;
@@ -118,8 +120,8 @@ margin-bottom:-3px;
 }
 
 i.service-icon {
-  border: 3px solid #8A0A0A;
-  color: #8A0A0A;
+  border: 3px solid #659EC7;
+  color: #659EC7;
   border-radius: 50%;
   display: inline-block;
   font-size: 56px;
@@ -145,7 +147,9 @@ i.service-icon {
 
 }
 #featured_sec {
-background: url("old_moon.png")repeat center center fixed;
+margin-right: 10px;
+margin-left: 10px;
+background: #fff; 
 display:inline-block;
 margin-bottom:30px;
 margin-top:30px;
@@ -162,9 +166,9 @@ border-bottom:solid 3px #888;
 }
 
 #kudos img {
-	width: 450px;
-	border-radius: 50%;
-	box-shadow: 8px 8px 8px 0px #888;
+
+	border-radius: 4px;
+	/*box-shadow: 8px 8px 8px 0px #888;*/
 }
 #kudos p {
 	margin-top: 20px;
