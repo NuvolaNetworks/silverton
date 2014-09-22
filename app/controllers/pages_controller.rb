@@ -56,4 +56,7 @@ class PagesController < ApplicationController
   def thanks_contact
   end
 
+  def Building_Process
+  end
+
 end
